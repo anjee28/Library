@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="./script/script.js"></script>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Library</title>
+</head>
+<body>
+    <div class="main">
+        <div class="sidebar">
+            <table>
+                <tr>
+                    <td><label for="title">Book Title</label></td>
+                    <td><input type="text" name="title" id="title"></td>
+                </tr>
+                <tr>
+                    <td><label for="author">Book Author</label></td>
+                    <td><input type="text" name="author" id="author"></td>
+                </tr>
+                <tr>
+                    <td><label for="pages">Pages</label></td>
+                    <td><input type="number" name="pages" id="pages"></td>
+                </tr>
+                <tr>
+                    <td><label for="isRead">Have read</label></td>
+                    <td><input type="checkbox" name="isRead" id="isRead"></td>
+                </tr>
+            </table>
+    
+            <button id="newBook">New Book</button>
+        </div>
+       
+        <div id="content">
+            <p id="number"></p>
+        </div>
+    </div>
+</body>
+</html>

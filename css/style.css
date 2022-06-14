@@ -63,7 +63,10 @@ body {
     color: #2980b9;
 }
 
-#newBookBtn,
+#newBookBtn {
+    visibility: hidden;
+}
+
 .del button {
     width: 100%;
     height: 50px;

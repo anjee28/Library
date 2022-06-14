@@ -10,33 +10,49 @@
     <title>Library</title>
 </head>
 <body>
-    <div class="main">
-        <div class="sidebar">
-            <table>
-                <tr>
-                    <td><label for="title">Book Title</label></td>
-                    <td><input type="text" name="title" id="title"></td>
-                </tr>
-                <tr>
-                    <td><label for="author">Book Author</label></td>
-                    <td><input type="text" name="author" id="author"></td>
-                </tr>
-                <tr>
-                    <td><label for="pages">Pages</label></td>
-                    <td><input type="number" name="pages" id="pages"></td>
-                </tr>
-                <tr>
-                    <td><label for="isRead">Have read</label></td>
-                    <td><input type="checkbox" name="isRead" id="isRead"></td>
-                </tr>
-            </table>
-    
-            <button id="newBook">New Book</button>
-        </div>
-       
-        <div id="content">
-            <p id="number"></p>
+    <div class="container">
+        <div class="gridContainer">
+            <div class="head">
+                <div class="user"></div>
+                <div class="header">LIBRARY</div>
+                <div class="newBook">
+                    <button>New Book</button>
+                </div>
+            </div>
+            <div class="content">
+                ad
+            </div>
         </div>
     </div>
+    <div class="center" id="center">
+        <h1>New Book</h1>
+        <form class="login" name="form">
+            <div class="txtField">
+                <input type="text" name="title" id="title" required>
+                <span></span>
+                <label>Book Title</label>
+            </div>
+            <div class="txtField">
+                <input type="text" name="author" id="author" required>
+                <span></span>
+                <label>Book Author</label>
+            </div>
+            <div class="txtField">
+                <input type="number" name="author" id="author" required>
+                <span></span>
+                <label>Pages</label>
+            </div>
+            <div class="checkBox">
+                <input type="checkbox" name="author" id="author" required>
+                <span></span>
+                <label>Have Read</label>
+            </div>
+
+            <input type="submit">
+
+
+        </form>
+    </div>
+
 </body>
 </html>

@@ -19,12 +19,15 @@ let newBookForm = document.getElementById('newBookForm');
 newBookForm.addEventListener('submit', () => {
 
     const titleNew = document.getElementById('newTitle');
+    const authorNew = document.getElementById('newAuthor');
+    const pageNew = document.getElementById('newPage');
+    const newStat = document.getElementById('newStat');
 
     let id = myLibrary.length;
     let title = titleNew.value;
-    let author = 'M R Another Authtor';
-    let pages = parseInt('323');
-    let isRead = true;
+    let author = authorNew.value;
+    let pages = parseInt(pageNew.value);
+    let isRead = newStat.checked;
     newBook(id,title,author,pages,isRead);
     newCard(id,title,author,pages,isRead);
 })
@@ -54,6 +57,7 @@ function newCard(id,title,author,pages,isRead) {
     del.classList.add('del');
     input.setAttribute('type','checkbox');
     input.setAttribute('name','isRead');
+    input.checked = isRead;
     label.setAttribute('for','isRead');
     label.textContent = 'Have Read';
     button.textContent = 'Delete'

@@ -16,154 +16,55 @@ body {
     width: 95vw;
     height: 95vh;
     background: white;
+    border-radius: 16px;
 
     padding: 24px;
-    box-sizing: border-box;
+    box-sizing: border-box;    
 }
 
 .container div {
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .gridContainer {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 250px 1fr;
     grid-template-rows: 50px 1fr;
     padding: 0;
     height: 100%;
+    gap: 16px;
 }
 
 .head {
-    grid-area: 1 / 0 / 2 / 0;
+    grid-area: 1 / 1 / 2 / 3;
     height: 100%;
     display: grid;
-    grid-template-columns: 100px 1fr 100px;
+    grid-template-columns: 200px 1fr 200px;
+    align-items: center;
 }
 
-.content {
-    grid-area: 2 / 0 / 3 / 0;
+.head div {
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    background: white;
-    border-radius: 10px;
-    visibility: hidden;
-
+.user a{
+    font-size: 18px;
+    text-decoration: none;
+    color:#2980b9;
+    font-weight: 600;
 }
 
-.center h1 {
-    text-align: center;
-    padding: 0 0 20px 0;
-    border-bottom: 1px solid silver;
-
+.header {
+    font-size: 36px;
+    font-weight: 900;
+    color: #2980b9;
 }
 
-.center form {
-    padding: 0 40px;
-    box-sizing: border-box;
-}
-
-form .txtField,
-form .checkBox {
-    position: relative;
-    border-bottom: 2px solid #adadad;
-    margin: 30px 0;
-}
-
-.txtField input {
-    width: 100%;
-    padding: 0 5px;
-    height: 40px;
-    font-size: 16px;
-    border: none;
-    background: none;
-    outline: none;
-}
-
-.txtField label {
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    color: #adadad;
-    transform: translateY(-50%);
-    font-size: 16px;
-    pointer-events: none;
-    transition: .15s;
-}
-
-.txtField span::before{ 
-    content: '';
-    position: absolute;
-    top: 40px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: #2691d9;
-    transition: .15s;
-}
-
-.checkbox input {
-    width: 100%;
-    padding: 0 5px;
-    height: 40px;
-    font-size: 16px;
-    border: none;
-    background: none;
-    outline: none;
-    transform: translateX(-45%);
-}
-
- .checkbox label {
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    color: #adadad;
-    transform: translateY(-50%) translateX(50%);
-    font-size: 16px;
-    pointer-events: none;
-    transition: .15s;
-}
-
-
-.checkBox span::before{ 
-    content: '';
-    position: absolute;
-    top: 40px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: #2691d9;
-    transition: .15s;
-    transform: translateY(250%);
-}
-
-
-.txtField input:focus ~ label,
-.txtField input:valid ~ label{
-    top: -5px;
-    color: #2691d9;
-}
-
-.checkBox input:focus ~ label,
-.checkBox input:valid ~ label{
-    color: #2691d9;
-}
-
-
-.txtField input:focus ~ span::before,
-.txtField input:valid ~ span::before, 
-.checkBox input:focus ~ span::before, 
-.checkBox input:valid ~ span::before {
-    width: 100%;
-}
-
-input[type="submit"] {
+#newBookBtn,
+.del button {
     width: 100%;
     height: 50px;
     border: 1px solid;
@@ -175,7 +76,85 @@ input[type="submit"] {
     outline: none;
 }
 
-input[type="submit"]:hover {
+#newBookBtn:hover {
     border-color: #2691d9;
     transition: .25s
+}
+
+.content {
+    grid-area: 2 / 2 / 3 / 3;
+    height: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+    overflow: scroll;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 270px));
+    justify-content: center;
+    background-color: #2691d9;
+    border-radius: 16px;
+}
+
+.content::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+
+    height: 350px;
+    padding: 12px;
+    background-color: white;
+    box-sizing: border-box;
+    border-radius: 16px;
+    box-shadow: #adadad 3px 3px 4px;
+    text-align: center;
+}
+
+.bookTitle {
+    font-size: 28px;
+    height: 150px;
+    font-weight: 600;
+    display: flex;
+}
+
+.bookAuthor {
+    font-size: 24px;
+    color: gray;
+}
+
+.bookPage {
+    font-size: 20px;
+}
+
+.del {
+    position: relative;
+    transform: translateY(100%);
+}
+
+.newBookForm {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    background: #2980b9;
+    padding: 8px;
+    border-radius: 16px;
+}
+
+.newBookForm form {
+    display: flex;
+    flex-direction: column;
+    gap: 8x;
+}
+
+.newBookForm input {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.newStat {
+    display: flex;
+}
+
+.newStat input{
+    flex:  0 1 20%;
 }

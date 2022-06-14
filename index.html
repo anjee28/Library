@@ -11,47 +11,35 @@
 </head>
 <body>
     <div class="container">
+        
         <div class="gridContainer">
             <div class="head">
-                <div class="user"></div>
+                <div class="user">
+                    <a href="#">@user</a>
+                </div>
                 <div class="header">LIBRARY</div>
                 <div class="newBook">
-                    <button>New Book</button>
+                    <button id="newBookBtn">New Book</button>
                 </div>
             </div>
-            <div class="content">
-                ad
+            <div class="content" id="cardContainer">
+                                
+            </div>
+            <div class="newBookForm">
+                <form onsubmit="return false" id="newBookForm">
+                    <input type="text" name="title" id="newTitle" placeholder="Book Title" required>
+                    <input type="text" name="author" id="newAuthor" placeholder="Book Author" required>
+                    <input type="number" name="page" id="newPage" required>
+                    <div class="newStat">
+                        <input type="checkbox" name="stat" id="newStat">
+                        <label for="stat">Have you read this book?</label>  
+                    </div>
+                    <input type="submit" id="submitNewBook">
+                </form>
+                
             </div>
         </div>
-    </div>
-    <div class="center" id="center">
-        <h1>New Book</h1>
-        <form class="login" name="form">
-            <div class="txtField">
-                <input type="text" name="title" id="title" required>
-                <span></span>
-                <label>Book Title</label>
-            </div>
-            <div class="txtField">
-                <input type="text" name="author" id="author" required>
-                <span></span>
-                <label>Book Author</label>
-            </div>
-            <div class="txtField">
-                <input type="number" name="author" id="author" required>
-                <span></span>
-                <label>Pages</label>
-            </div>
-            <div class="checkBox">
-                <input type="checkbox" name="author" id="author" required>
-                <span></span>
-                <label>Have Read</label>
-            </div>
-
-            <input type="submit">
-
-
-        </form>
+        
     </div>
 
 </body>

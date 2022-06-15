@@ -1,7 +1,5 @@
 let myLibrary = [];
 
-let booksTable = document.querySelector('#booksTable');
-
 //Book
 function Book(id, title, author, pages, isRead) {
     this.id = id;
@@ -30,7 +28,6 @@ newBookForm.addEventListener('submit', () => {
     newBook(id,title,author,pages,isRead);
 })
 
-
 function generateId() {
 
     let lastId = 0;
@@ -44,9 +41,35 @@ function generateId() {
         else {
             lastId = myLibrary[i].id;
         }
-
     }
     return (lastId + 1);
+}
+
+function newBook(id,title,author,pages,isRead) {
+
+    myLibrary.push(myLibrary.length);
+    myLibrary[myLibrary.length - 1] = new Book (id,title,author,pages,isRead);
+    generateCards();
+}
+
+//Card Generation - Generate Cards from myLibrary Array
+function generateCards(){
+
+    //Removes all div cards
+    const elements = document.getElementsByClassName('card');
+    while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
+
+    for(i = 0; i < myLibrary.length; i++){
+
+        let id = myLibrary[i].id;
+        let title = myLibrary[i].title;
+        let author = myLibrary[i].author;
+        let pages = myLibrary[i].pages;
+        let isRead = myLibrary[i].isRead;
+        newCard(id,title,author,pages,isRead);
+    }
 }
 
 //Cards Generation - Dislplay Cards
@@ -103,26 +126,6 @@ function newCard(id,title,author,pages,isRead) {
 
 }
 
-//Card Generation - Generate Cards from myLibrary Array
-function generateCards(){
-
-    const elements = document.getElementsByClassName('card');
-    while(elements.length > 0){
-        elements[0].parentNode.removeChild(elements[0]);
-    }
-
-    for(i = 0; i < myLibrary.length; i++){
-
-        
-        let id = myLibrary[i].id;
-        let title = myLibrary[i].title;
-        let author = myLibrary[i].author;
-        let pages = myLibrary[i].pages;
-        let isRead = myLibrary[i].isRead;
-        newCard(id,title,author,pages,isRead);
-    }
-}
-
 //Sample Book Generation
 sampleBook();
 
@@ -135,15 +138,6 @@ function sampleBook() {
     newBook(id,title,author,pages,isRead);
 }
  
-function newBook(id,title,author,pages,isRead) {
-
-    const booksNumber = document.getElementById('number');
-    myLibrary.push(myLibrary.length);
-    myLibrary[myLibrary.length - 1] = new Book  (id,title,author,pages,isRead);
-    generateCards();
-
-}
-
 function displayBooks(){
 
 }   

@@ -2,8 +2,7 @@ let myLibrary = [];
 
 let booksTable = document.querySelector('#booksTable');
 
-//newBook(0, 'In Search of Lost Time', 'Marcel Prouse', 1024, false);
-
+//Book
 function Book(id, title, author, pages, isRead) {
     this.id = id;
     this.title = title;
@@ -15,7 +14,7 @@ function Book(id, title, author, pages, isRead) {
 let newBtn = document.getElementById('submitNewBook');
 let newBookForm = document.getElementById('newBookForm');
 
-
+//New Book Form - Getting Data from Form
 newBookForm.addEventListener('submit', () => {
 
     const titleNew = document.getElementById('newTitle');
@@ -23,15 +22,34 @@ newBookForm.addEventListener('submit', () => {
     const pageNew = document.getElementById('newPage');
     const newStat = document.getElementById('newStat');
 
-    let id = myLibrary.length;
+    let id = generateId();
     let title = titleNew.value;
     let author = authorNew.value;
     let pages = parseInt(pageNew.value);
     let isRead = newStat.checked;
     newBook(id,title,author,pages,isRead);
-    newCard(id,title,author,pages,isRead);
 })
 
+
+function generateId() {
+
+    let lastId = 0;
+
+    for(i = 0; i < myLibrary.length; i++) {
+        
+        if(myLibrary[i].id === undefined)
+        {
+            lastId = 0;
+        }
+        else {
+            lastId = myLibrary[i].id;
+        }
+
+    }
+    return (lastId + 1);
+}
+
+//Cards Generation - Dislplay Cards
 function newCard(id,title,author,pages,isRead) {
     const cardContainer = document.getElementById('cardContainer');
     const card = document.createElement('div');
@@ -73,20 +91,56 @@ function newCard(id,title,author,pages,isRead) {
     del.appendChild(button);
 
     button.addEventListener('click', () => {
-        delete myLibrary[id];
+        
+        const index = myLibrary.findIndex(object => {
+            return object.id === 3;
+        });
+        
+        myLibrary.splice(index, 1);
         const element = document.getElementById(id);
-        element.remove()
+        element.remove();
     });
+
 }
 
+//Card Generation - Generate Cards from myLibrary Array
+function generateCards(){
 
+    const elements = document.getElementsByClassName('card');
+    while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
 
+    for(i = 0; i < myLibrary.length; i++){
+
+        
+        let id = myLibrary[i].id;
+        let title = myLibrary[i].title;
+        let author = myLibrary[i].author;
+        let pages = myLibrary[i].pages;
+        let isRead = myLibrary[i].isRead;
+        newCard(id,title,author,pages,isRead);
+    }
+}
+
+//Sample Book Generation
+sampleBook();
+
+function sampleBook() {
+    let id = myLibrary.length;
+    let title = 'Sample Book Title';
+    let author = 'Sample Book Author';
+    let pages = parseInt(1232);
+    let isRead = newStat.checked;
+    newBook(id,title,author,pages,isRead);
+}
+ 
 function newBook(id,title,author,pages,isRead) {
 
     const booksNumber = document.getElementById('number');
     myLibrary.push(myLibrary.length);
     myLibrary[myLibrary.length - 1] = new Book  (id,title,author,pages,isRead);
-    
+    generateCards();
 
 }
 
@@ -94,4 +148,3 @@ function displayBooks(){
 
 }   
 
-//str.replace(/\s/g, '');

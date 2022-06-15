@@ -93,7 +93,7 @@ function newCard(id,title,author,pages,isRead) {
     button.addEventListener('click', () => {
         
         const index = myLibrary.findIndex(object => {
-            return object.id === 3;
+            return object.id === id;
         });
         
         myLibrary.splice(index, 1);
